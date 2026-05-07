@@ -1,0 +1,8 @@
+RewriteEngine On   #Ativa o módulo de reescrita do Apache (mod_rewrite). Sem isso, nenhuma regra de reescrita funcionaria. Abaixo, colocaremos as estruturas que queremos que o Apache acompanhe, ao invés do padrão dele. 
+# Se o arquivo ou pasta não existir 
+RewriteCond %{REQUEST_FILENAME} !-f 
+RewriteCond %{REQUEST_FILENAME} !-d 
+# -f significa não é um arquivo 
+# -d significa não é um diretório 
+# Redireciona tudo o que o usuario digitou na url para index.php 
+RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
